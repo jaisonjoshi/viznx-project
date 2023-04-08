@@ -15,7 +15,7 @@ const initialState = {
   error: null,
 };
 
-const BASE_URL = "http://54.173.240.238:5000/api/device";
+const BASE_URL = "https://api.viznexdev.me/api/device";
 
 export const Context = createContext(initialState);
 const config = {
