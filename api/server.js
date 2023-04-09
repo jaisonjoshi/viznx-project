@@ -28,7 +28,6 @@ app.use(
 );
 const PORT = 8080;
 connectDB();
-app.get("/api", (req, res) => res.send("CONGRATS ,YOU SUMMONED VIZNX"));
 
 app.use("/api/admin", adminRouter);
 app.use("/api/operator", operatorRouter);
@@ -38,6 +37,6 @@ app.use("/api/device", deviceRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(PORT, () =>
+app.listen(8080, () =>
   console.log(`server listen on http://localhost:${PORT}`)
 );
