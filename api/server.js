@@ -26,7 +26,7 @@ app.use(
     extended: true,
   })
 );
-const PORT = 5000;
+const PORT = 8080;
 connectDB();
 
 app.use("/api/admin", adminRouter);
