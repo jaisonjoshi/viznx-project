@@ -12,7 +12,7 @@ const app = express();
 
 app.use(morgan("dev"));
 const corsOptions = {
-  origin: true,
+  origin: ["https://viznexdev.me", "http://localhost:3000/"],
   credentials: true,
 };
 
@@ -25,10 +25,9 @@ app.use(
     extended: true,
   })
 );
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 connectDB();
 
-app.get("/", (req, res) => res.send("CONGRATS ,YOU SUMMONED VIZNX"));
 app.use("/api/admin", adminRouter);
 app.use("/api/operator", operatorRouter);
 app.use("/api/customer", customerRouter);
