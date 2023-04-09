@@ -27,7 +27,8 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         httpOnly: true,
         secure: true,
         domain: 'api.viznexdev.me',
-        path:'/'
+        path:'/',
+        sameSite: 'none'
       });
       res.cookie("Viznx_device_Status", device._id, {
         maxAge: maxAge,
@@ -35,7 +36,8 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         httpOnly: true,
         secure:true,
         domain: 'api.viznexdev.me',
-        path:'/'
+        path:'/',
+        sameSite:'none'
 
       });
 
