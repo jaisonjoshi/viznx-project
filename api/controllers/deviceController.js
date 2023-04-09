@@ -13,6 +13,7 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
   if (!deviceId || !password) {
     return res.status(200).json({ message: "Device fields are required" });
   }
+  
 
   try {
     const device = await Device.findOne({ deviceId });
@@ -21,16 +22,20 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
       const maxAge = 1000 * 60 * 60 * 24 * 365 * 10; // set maxAge to 10 years
       const token = generateTokenForDevice(device._id);
       res.cookie("Viznx_Secure_Device_Session_ID", token, {
+        maxAge: 5000,
+        // expires works the same as the maxAge
+        expires: new Date('01 12 2024'),
+        secure: true,
         httpOnly: true,
-        maxAge: maxAge,
-     
-        
+        sameSite: 'lax'
       });
       res.cookie("Viznx_device_Status", device._id, {
-        maxAge: maxAge,
-       
+        maxAge: 5000,
+        // expires works the same as the maxAge
+        expires: new Date('01 12 2024'),
+        secure: true,
         httpOnly: true,
-
+        sameSite: 'lax'
       });
 
       const deviceInfo = await Device.findById(device._id)
