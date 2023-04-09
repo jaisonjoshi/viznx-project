@@ -9,10 +9,10 @@ import operatorRouter from "./routes/operatorRouter.js";
 import deviceRouter from "./routes/deviceRouter.js";
 import customerRouter from "./routes/customerRouter.js";
 const app = express();
-
+   
 app.use(morgan("dev"));
 const corsOptions = {
-  origin: ["https://viznexdev.me", "http://localhost:3000"],
+  origin: true,
   methods:"GET,POST,PUT,DELETE,PATCH",
   credentials: true,
 };
@@ -28,6 +28,7 @@ app.use(
 );
 const PORT = 8080;
 connectDB();
+app.get("/api", (req, res) => res.send("CONGRATS ,YOU SUMMONED VIZNX"));
 
 app.use("/api/admin", adminRouter);
 app.use("/api/operator", operatorRouter);
