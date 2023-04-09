@@ -9,37 +9,47 @@ const Home = () => {
     const [nn, setNn] = useState(false)
     const [evng, setEvng] = useState(false)
 
-  const checkTime = () => {
-        const currentTime = new Date();
-        const currentHour = currentTime.getHours();
-        if(currentHour<8 || currentHour>21){
-            setEvng(false)
-            setMrng(false)
-            setNn(false)
-        }
-        if(currentHour>8 && currentHour<12){
-            setMrng(true)
-            setNn(false)
-            setEvng(false)
-        }
-        if(currentHour>12 && currentHour<16){
-            setNn(true)
-            setMrng(false)
-            setEvng(false)
-        }
-        if(currentHour>16 && currentHour<21){
-            setEvng(true)
-            setMrng(false)
-            setNn(false)
-        }
-       
-    }
-    const now = new Date();
+    useEffect(()=>{
+        const checkTime = () => {
+            console.log("hi im cslled")
+              const currentTime = new Date();
+              const currentHour = currentTime.getHours();
+              console.log(currentHour)
+              if(currentHour<8 || currentHour>22){
+                  setEvng(false)
+                  setMrng(false)
+                  setNn(false)
+              }
+              if(currentHour>8 && currentHour<12){
+                  setMrng(true)
+                  setNn(false)
+                  setEvng(false)
+              }
+              if(currentHour>12 && currentHour<16){
+                  setNn(true)
+                  setMrng(false)
+                  setEvng(false)
+              }
+              if(currentHour>16 && currentHour<22){
+                  setEvng(true)
+                  setMrng(false)
+                  setNn(false)
+                  console.log("hello evng")
+              }
+             
+          }
+
+          const now = new Date();
     const delay = 60 * 60 * 1000 - now.getMinutes() * 60 * 1000 - now.getSeconds() * 1000 - now.getMilliseconds();
-    setTimeout(function() {
-        checkTime(); // Run the function immediately
+    checkTime();
+
+    setTimeout(() =>{
+        checkTime();
         setInterval(checkTime, 60 * 60 * 1000); // Run the function once per hour
       }, delay);
+
+
+    },[])
 
  
     
