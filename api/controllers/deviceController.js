@@ -26,7 +26,7 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         // expires works the same as the maxAge
         httpOnly: true,
         secure: true,
-        domain: '.viznexdev.me',
+        domain: 'https://api.viznexdev.me',
         path:'/'
       });
       res.cookie("Viznx_device_Status", device._id, {
@@ -34,7 +34,7 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         // expires works the same as the maxAge
         httpOnly: true,
         secure:true,
-        domain: '.viznexdev.me',
+        domain: 'https://api.viznexdev.me',
         path:'/'
 
       });
