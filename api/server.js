@@ -12,7 +12,8 @@ const app = express();
 
 app.use(morgan("dev"));
 const corsOptions = {
-  origin: ["https://viznexdev.me", "http://localhost:3000/"],
+  origin: ["https://viznexdev.me", "http://localhost:3000"],
+  methods:"GET,POST,PUT,DELETE,PATCH",
   credentials: true,
 };
 
