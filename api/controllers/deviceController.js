@@ -22,15 +22,18 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
       const token = generateTokenForDevice(device._id);
       res.cookie("Viznx_Secure_Device_Session_ID", token, {
         httpOnly: true,
+        domain: '.viznexdev.me',
         maxAge: maxAge,
-        sameSite: "none",
+        sameSite: "lax",
         path: "/",
         secure: true,
         
       });
       res.cookie("Viznx_device_Status", device._id, {
         maxAge: maxAge,
-        sameSite: "none",
+        sameSite: "lax",
+        domain: '.viznexdev.me',
+
         path: "/",
         secure: true,
         httpOnly: true,
