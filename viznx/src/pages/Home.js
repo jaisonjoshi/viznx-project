@@ -4,7 +4,7 @@ import { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../context/context'
 const Home = () => {
     const { userInfo } = useContext(Context);
-    console.log(userInfo)
+    console.log(userInfo.queues.eveningQueue.ads[0].url)
     const [mrng, setMrng] = useState(false)
     const [nn, setNn] = useState(false)
     const [evng, setEvng] = useState(false)
@@ -14,6 +14,7 @@ const Home = () => {
             console.log("hi im cslled")
               const currentTime = new Date();
               const currentHour = currentTime.getHours();
+
               console.log(currentHour)
               if(currentHour<8 || currentHour>22){
                   setEvng(false)
@@ -30,7 +31,7 @@ const Home = () => {
                   setMrng(false)
                   setEvng(false)
               }
-              if(currentHour>16 && currentHour<22){
+              if(currentHour>=16 && currentHour<22){
                   setEvng(true)
                   setMrng(false)
                   setNn(false)
@@ -39,7 +40,7 @@ const Home = () => {
              
           }
 
-          const now = new Date();
+    const now = new Date();
     const delay = 60 * 60 * 1000 - now.getMinutes() * 60 * 1000 - now.getSeconds() * 1000 - now.getMilliseconds();
     checkTime();
 
