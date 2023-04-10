@@ -26,7 +26,7 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         // expires works the same as the maxAge
         httpOnly: true,
         secure: true,
-        domain: 'api.viznexdev.me',
+        domain: 'viznexdev.me',
         path:'/',
         sameSite: 'none'
       });
@@ -35,7 +35,7 @@ export const deviceLogin = expressAsyncHandler(async (req, res) => {
         // expires works the same as the maxAge
         httpOnly: true,
         secure:true,
-        domain: 'api.viznexdev.me',
+        domain: 'viznexdev.me',
         path:'/',
         sameSite:'none'
 
