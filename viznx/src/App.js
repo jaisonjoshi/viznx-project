@@ -8,11 +8,11 @@ import PrivateRoutingLayout from './components/Routes/PrivateRoutingLayout';
 
 function App() {
 
-  /* const { loadProfile, userInfo } = useContext(Context);
+  const { loadProfile, userInfo } = useContext(Context);
   const user = useMemo(() => userInfo, [userInfo]);
   useEffect(() => {
     if (!user?._id) loadProfile();
-  }, []); */
+  }, []);
 
 
   return (
